@@ -1,0 +1,20 @@
+{
+  "name": "iitd-userdata",
+  "homepage": "https://github.com/Korku02/iitd-userdata",
+  "authors": [
+    "manish <manish9461@gmail.com>"
+  ],
+  "description": "This contains the most common and useful data of iitd students and faculty Edit",
+  "main": "Add topics",
+  "keywords": [
+    "IITDelhi"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
