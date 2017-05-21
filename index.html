@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Students Data</title>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+
+  </head>
+  <body ng-app = "myApp">
+
+     <nav style="background-color:#0D47A1">
+       <div class="nav-wrapper">
+         <a href="#!" class="brand-logo center">Apne Log</a>
+      <ul class="left hide-on-med-and-down">
+           <li><a href="#/students">Students</a></li>
+           <li><a href="#/faculty">Faculty</a></li>
+         </ul>
+       </div>
+     </nav>
+    <div data-ng-view = "" ng-cloak></div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script defer src="js/material.js"></script>
+    <script type="text/javascript">
+
+    var app = angular.module('myApp', ["ngRoute"]);
+    app.controller('studentsCtrl', function($scope, $http) {
+        $http.get("student.json")
+        .then(function (response) {
+          $scope.students = response.data;
+          console.log(response);
+        })
+
+
+
+
+    });
+
+    app.controller('facultyCtrl', function($scope, $http) {
+        $http.get("faculty.json")
+        .then(function (response) {
+          $scope.faculty = response.data;
+          console.log(response);
+        })
+
+
+
+
+    });
+
+    app.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
+      $routeProvider.when("/", {
+        controller: "studentsCtrl",
+        templateUrl: "templates/students.html"
+      }).when("/students", {
+        controller: "studentsCtrl",
+        templateUrl: "templates/students.html"
+      }).when("/faculty", {
+        controller: "facultyCtrl",
+        templateUrl: "templates/faculty.html"
+      })
+      .otherwise({
+        controller: "studentsCtrl",
+        templateUrl: "templates/error.html"
+      });
+    }]);
+
+
+
+    </script>
+  </body>
+</html>
