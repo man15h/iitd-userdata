@@ -1,80 +1,21 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Students Data</title>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-
-
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans|Titillium+Web|Varela+Round|Lato|Montserrat|Railway" rel="stylesheet">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body ng-app = "myApp">
-
-     <nav style="background-color:#0D47A1">
-       <div class="nav-wrapper">
-         <a href="#!" class="brand-logo center">Apne Log</a>
-      <ul class="left hide-on-med-and-down">
-           <li><a href="#/students">Students</a></li>
-           <li><a href="#/faculty">Faculty</a></li>
-         </ul>
-       </div>
-     </nav>
+    <!-- TODO: Create nav -->
     <div data-ng-view = "" ng-cloak></div>
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-    <script defer src="js/material.js"></script>
-    <script type="text/javascript">
-
-    var app = angular.module('myApp', ["ngRoute"]);
-    app.controller('studentsCtrl', function($scope, $http) {
-        $http.get("student.json")
-        .then(function (response) {
-          $scope.students = response.data;
-          console.log(response);
-        })
-
-
-
-
-    });
-
-    app.controller('facultyCtrl', function($scope, $http) {
-        $http.get("faculty.json")
-        .then(function (response) {
-          $scope.faculty = response.data;
-          console.log(response);
-        })
-
-
-
-
-    });
-
-    app.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
-      $routeProvider.when("/", {
-        controller: "studentsCtrl",
-        templateUrl: "templates/students.html"
-      }).when("/students", {
-        controller: "studentsCtrl",
-        templateUrl: "templates/students.html"
-      }).when("/faculty", {
-        controller: "facultyCtrl",
-        templateUrl: "templates/faculty.html"
-      })
-      .otherwise({
-        controller: "studentsCtrl",
-        templateUrl: "templates/error.html"
-      });
-    }]);
-
-
-
-    </script>
+    <script type='text/javascript' src="bower_components/angular/angular.min.js"></script>
+    <script type='text/javascript' src="bower_components/angular-material/angular-material.min.js"></script>
+    <script type='text/javascript' src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script type='text/javascript' src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script type='text/javascript' src="bower_components/angular-route/angular-route.min.js"></script>
+    <script type='text/javascript' src="js/app.js"></script>
   </body>
 </html>
