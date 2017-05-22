@@ -1,14 +1,14 @@
-<section class="student" layout="column" layout-align="center center">
+<section class="student" layout="column" layout-align="center center" style="  background: linear-gradient(120deg, {{gradient.start}} 0%, {{gradient.end}} 75%);">
   <md-autocomplete
     md-selected-item="selectedItem"
-    md-selected-item-change="selectedItemChange(student)"
+    md-selected-item-change="selectedItemChange(student, $event)"
     md-search-text="searchText"
     md-items="student in getStudent(searchText)"
     md-item-text="student.name"
     placeholder="Search Name/UserID"
     md-no-cache="true">
     <md-item-template>
-        <span>{{student.name}}</span>
+        <span>{{student.name}} | {{student._id}}</span>
         <!-- <span md-highlight-text="searchText" md-highlight-flags="^i">{{ticker.exchange}}</span> -->
     </md-item-template>
     <md-not-found>
